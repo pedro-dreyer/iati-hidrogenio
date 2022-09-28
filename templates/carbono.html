@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/series-label.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Drone Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+
+  <head>
+  <body>
+
+
+        <header>
+
+		<img src="{{ url_for('static', filename='media/logo_iati.png') }}" alt="logo" width="200px">
+
+        </header>
+
+        <main>
+
+          <div class="dashboard-gui">
+              <h1 class="dashboard-title">PROJETO HIDROGÊNIO</h1>
+              <table>
+                <tr>
+                  <th>SENSOR</th>
+                  <th>STATUS</th>
+                  <th>VALOR</th>
+                </tr>
+                <tr>
+                  <td>SENSOR 1</td>
+                  <td>
+                    <div id="sinal_ac_battery" class="container">
+                      <div class="battery_1"></div>
+                      <div class="battery_2"></div>
+                      <div class="battery_3"></div>
+                      <div class="battery_4"></div>
+                      <div class="battery_5"></div>
+                      <div class="battery_6"></div>
+                      <td id='sinal_ac_value'> </td>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>SENSOR 2</td>
+                  <td>
+                    <div id="sensor_h2_1_battery" class="container">
+                        <div class="battery_1"></div>
+                        <div class="battery_2"></div>
+                        <div class="battery_3"></div>
+                        <div class="battery_4"></div>
+                        <div class="battery_5"></div>
+                        <div class="battery_6"></div>
+                        <td id='sensor_h2_1_value'> </td>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>SENSOR 3 </td>
+                  <td>
+                    <div id="sw_hidropneumatica_battery" class="container">
+                        <div class="battery_1"></div>
+                        <div class="battery_2"></div>
+                        <div class="battery_3"></div>
+                        <div class="battery_4"></div>
+                        <div class="battery_5"></div>
+                        <div class="battery_6"></div>
+                        <td id='sw_hidropneumatica_value'> </td>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <div id="chart-temperature" class="test-chart"></div>
+          </div>
+
+	<script src="{{ url_for('static', filename='main.js') }}"></script>
+	<script src="{{ url_for('static', filename='update.js') }}"></script>
+
+  </body>
+</html>

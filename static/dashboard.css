@@ -1,0 +1,115 @@
+html, body{
+    height: 100%;
+}
+
+main  {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-gui {
+
+  width: 700px;
+  height: 800px;
+  background-color: #dfdfdf;;
+  border: 5px solid #42753a;
+  border-radius: 25px;
+
+}
+
+.dashboard-title{
+
+    font-size: 60px;
+    line-height: 70px;
+    text-align: center;
+    margin-top:20px
+
+}
+
+.dashboard-subtitle{
+
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    margin-bottom:40px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container div {
+    width:40px;
+    height: 18px;
+}
+
+.test-chart  {
+    margin: 5% 5%;
+}
+
+table {
+    border-collapse: collapse;
+    background: white;
+    margin: 5% auto;
+}
+
+td, th {
+    text-align: center;
+}
+
+
+th {
+background-color: #42753a;
+color: white;
+font-size: 30px;
+line-height: 40px;
+padding: 0pt 30pt;
+}
+
+td {
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 10px;
+    border-top: 10px solid #dfdfdf;
+    border-bottom: 10px solid #dfdfdf;
+    font-weight: 500;
+    padding: 5px;
+}
+
+
+
+  @media (max-width:1000px) {
+
+    .dashboard-gui {
+    width: 600px;
+    height: 300px;
+    }
+
+    .dashboard-title{
+        font-size: 20px;
+        line-height: 30px;
+        margin-top: 0px;
+    }
+    .dashboard-subtitle{
+        font-size: 10px;
+        line-height: 0px;
+        margin-bottom:20px;
+    }
+
+    th {
+        font-size: 10px;
+        line-height: 20px;
+    }
+
+    td {
+        font-size: 7px;
+        line-height: 20px;
+        border-top: 5px solid #dfdfdf;
+        border-bottom: 5px solid #dfdfdf;
+        font-weight: bold;
+    }
+
+}
