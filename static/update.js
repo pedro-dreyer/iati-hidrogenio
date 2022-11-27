@@ -1,27 +1,48 @@
-const sensorsNames = ["sinal_ac", "sensor_h2_1", "sw_hidropneumatica"];
+const sensorsNames = ["sinal_ac", "sensor_h2_1", "sw_hidropneumatica"]
 
-const ledRanges = [
-	[0, 0, 0, 0, 0, 0, 3.4],
-	[0, 0, 0, 0, 0, 0, 3.4],
-	[0, 0, 0, 0, 0, 0, 3.4],
-	];
+const num_sensors = 3
+const num_leds = 6
 
-for (let jj = 0; jj < 3; jj++) {
-	increment = (ledRanges[jj][6] - ledRanges[jj][0]) / 6
-    for (let ii=1; ii < 7; ii++) {
-		ledRanges[jj][ii] = ledRanges[jj][ii-1] + increment
+const min_led_values = [0, 0, 0]
+const max_led_values = [3.3, 3.3, 3.3]
+
+const ledRanges = []
+
+for (let iSensor = 0; iSensor < num_sensors; iSensor++) {
+	increment = (max_led_values[iSensor] - min_led_values[iSensor]) / (num_leds-1)
+	ledRanges[iSensor] = []
+    for (let iLed=0; iLed < num_leds; iLed++) {
+		ledRanges[iSensor][iLed] = min_led_values[iSensor] + increment*(iLed)
     }
 }
 
+console.log(ledRanges)
 function updateSensors(sensorData, sensorName, ledRange) {
-    for (let iLed = 0; iLed < 7; iLed ++) {
-		if (sensorData < ledRange[iLed]) {
-	    	updateBattery(sensorName.concat('_battery'), iLed);
-			updateValues(sensorName.concat('_value'), sensorData)
-	    break;
+
+	let ledState = num_leds
+
+	// find indice where value is higher than current sensor data
+	for (let iLed = 0; iLed < num_leds; iLed ++) {
+		if (ledRange[iLed] > sensorData ) {
+			ledState = iLed
+			break;
 		}
-    }
+	}
+
+	updateBattery(sensorName.concat('_battery'), ledState);
+	updateValues(sensorName.concat('_value'), sensorData)
 }
+
+
+// function updateSensors(sensorData, sensorName, ledRange) {
+//     for (let iLed = 0; iLed < 7; iLed ++) {
+// 		if (sensorData < ledRange[iLed]) {
+// 	    	updateBattery(sensorName.concat('_battery'), iLed);
+// 			updateValues(sensorName.concat('_value'), sensorData)
+// 	    break;
+// 		}
+//     }
+// }
 
 function updateValues(id, value){
 	document.getElementById(id).innerHTML = value;

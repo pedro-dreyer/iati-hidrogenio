@@ -83,10 +83,4 @@ function updateBattery(id, value){
     list.getElementsByClassName("battery_5")[0].style.backgroundColor = lightGreen
     list.getElementsByClassName("battery_6")[0].style.backgroundColor = lightYellow
   }
-
 }
-
-updateBattery("sinal_ac_battery", 0)
-updateBattery("sensor_h2_1_battery", 0)
-updateBattery("sw_hidropneumatica_battery", 0)
-

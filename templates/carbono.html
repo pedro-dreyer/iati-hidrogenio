@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
-  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="{{ url_for('static', filename='libs/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='libs/highcharts.js') }}"></script>
+  <script src="{{ url_for('static', filename='libs/series-label.js') }}"></script>
+  <script src="{{ url_for('static', filename='libs/exporting.js') }}"></script>
+  <script src="{{ url_for('static', filename='libs/export-data.js') }}"></script>
+  <script src="{{ url_for('static', filename='libs/accessibility.js') }}"></script>
+
+  <!-- <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/series-label.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/modules/export-data.js"></script>
-  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script> -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -84,7 +90,7 @@
               <div id="chart-temperature" class="test-chart"></div>
           </div>
 
-	<script src="{{ url_for('static', filename='main.js') }}"></script>
+	<script src="{{ url_for('static', filename='battery.js') }}"></script>
 	<script src="{{ url_for('static', filename='update.js') }}"></script>
 
   </body>
