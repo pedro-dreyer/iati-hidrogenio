@@ -1,28 +1,27 @@
-const sensorsNames = ["sinal_ac", "sensor_h2_1", "sw_hidropneumatica"]
+const sensorsNames = ["sensor1", "sensor2", "sensor3", "sensor4", "sensor5", "sensor6", "sensor7", "sensor8", "sensor9", "sensor10"]
 
-const num_sensors = 3
-const num_leds = 6
+const NUM_SENSORS = 10
+const NUM_LEDS = 6
 
-const min_led_values = [0, 0, 0]
-const max_led_values = [3.3, 3.3, 3.3]
+const min_led_values = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+const max_led_values = [3.3, 3.3, 3.3, 3.3, 3.3, 3.3, 3.3, 3.3, 3.3, 3.3]
 
 const ledRanges = []
 
-for (let iSensor = 0; iSensor < num_sensors; iSensor++) {
-	increment = (max_led_values[iSensor] - min_led_values[iSensor]) / (num_leds-1)
+for (let iSensor = 0; iSensor < NUM_SENSORS; iSensor++) {
+	increment = (max_led_values[iSensor] - min_led_values[iSensor]) / (NUM_LEDS-1)
 	ledRanges[iSensor] = []
-    for (let iLed=0; iLed < num_leds; iLed++) {
+    for (let iLed=0; iLed < NUM_LEDS; iLed++) {
 		ledRanges[iSensor][iLed] = min_led_values[iSensor] + increment*(iLed)
     }
 }
 
-console.log(ledRanges)
 function updateSensors(sensorData, sensorName, ledRange) {
 
-	let ledState = num_leds
+	let ledState = NUM_LEDS
 
 	// find indice where value is higher than current sensor data
-	for (let iLed = 0; iLed < num_leds; iLed ++) {
+	for (let iLed = 0; iLed < NUM_LEDS; iLed ++) {
 		if (ledRange[iLed] > sensorData ) {
 			ledState = iLed
 			break;
@@ -32,17 +31,6 @@ function updateSensors(sensorData, sensorName, ledRange) {
 	updateBattery(sensorName.concat('_battery'), ledState);
 	updateValues(sensorName.concat('_value'), sensorData)
 }
-
-
-// function updateSensors(sensorData, sensorName, ledRange) {
-//     for (let iLed = 0; iLed < 7; iLed ++) {
-// 		if (sensorData < ledRange[iLed]) {
-// 	    	updateBattery(sensorName.concat('_battery'), iLed);
-// 			updateValues(sensorName.concat('_value'), sensorData)
-// 	    break;
-// 		}
-//     }
-// }
 
 function updateValues(id, value){
 	document.getElementById(id).innerHTML = value;
@@ -60,6 +48,27 @@ var chartT = new Highcharts.Chart({
         data: []
     },  {
         name: 'Sensor 3',
+        data: []
+	},  {
+        name: 'Sensor 4',
+        data: []
+	},  {
+        name: 'Sensor 5',
+        data: []
+	},  {
+        name: 'Sensor 6',
+        data: []
+	},  {
+        name: 'Sensor 7',
+        data: []
+	},  {
+        name: 'Sensor 8',
+        data: []
+	},  {
+        name: 'Sensor 9',
+        data: []
+	},  {
+        name: 'Sensor 10',
         data: []
     }],
 
@@ -84,7 +93,7 @@ setInterval(function(){
         url: '/sensor1',
         type: 'GET',
         success: function(response) {
-	    	for (let iSensor = 0; iSensor < 3; iSensor++) {
+	    	for (let iSensor = 0; iSensor < 10; iSensor++) {
 				updateSensors(response[iSensor], sensorsNames[iSensor], ledRanges[iSensor]);
 	    	}
         },
@@ -103,17 +112,37 @@ setInterval(function(){
 		 y1 = parseFloat(response[0]);
 		 y2 = parseFloat(response[1]);
 		 y3 = parseFloat(response[2]);
-
+		 y4 = parseFloat(response[3]);
+		 y5 = parseFloat(response[4]);
+		 y6 = parseFloat(response[5]);
+		 y7 = parseFloat(response[6]);
+		 y8 = parseFloat(response[7]);
+		 y9 = parseFloat(response[8]);
+		 y10 = parseFloat(response[9]);
 
 		 if(chartT.series[0].data.length > 100) {
-			 chartT.series[0].addPoint([x, y1], true, true, true);
-			 chartT.series[1].addPoint([x, y2], true, true, true);
-			 chartT.series[2].addPoint([x, y3], true, true, true);
+			chartT.series[0].addPoint([x, y1], true, true, true);
+			chartT.series[1].addPoint([x, y2], true, true, true);
+			chartT.series[2].addPoint([x, y3], true, true, true);
+			chartT.series[3].addPoint([x, y4], true, true, true);
+			chartT.series[4].addPoint([x, y5], true, true, true);
+			chartT.series[5].addPoint([x, y6], true, true, true);
+			chartT.series[6].addPoint([x, y7], true, true, true);
+			chartT.series[7].addPoint([x, y8], true, true, true);
+			chartT.series[8].addPoint([x, y9], true, true, true);
+			chartT.series[9].addPoint([x, y10], true, true, true);
 		 }
 		 else {
-			 chartT.series[0].addPoint([x, y1], true, false, true);
-			 chartT.series[1].addPoint([x, y2], true, false, true);
-			 chartT.series[2].addPoint([x, y3], true, false, true);
+			chartT.series[0].addPoint([x, y1], true, false, true);
+			chartT.series[1].addPoint([x, y2], true, false, true);
+			chartT.series[2].addPoint([x, y3], true, false, true);
+			chartT.series[3].addPoint([x, y4], true, false, true);
+			chartT.series[4].addPoint([x, y5], true, false, true);
+			chartT.series[5].addPoint([x, y6], true, false, true);
+			chartT.series[6].addPoint([x, y7], true, false, true);
+			chartT.series[7].addPoint([x, y8], true, false, true);
+			chartT.series[8].addPoint([x, y9], true, false, true);
+			chartT.series[9].addPoint([x, y10], true, false, true);
 		 }
 
 		 },
