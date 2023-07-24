@@ -108,32 +108,32 @@ setInterval(function(){
 		 type: 'GET',
 		 success: function(response) {
 
-        x = (new Date()).getTime()
-        y1 = parseFloat(response[0]);
-        y2 = parseFloat(response[1]);
-        y3 = parseFloat(response[2]);
-        y4 = parseFloat(response[3]);
-        y5 = parseFloat(response[4]);
-        y6 = parseFloat(response[5]);
-        y7 = parseFloat(response[6]);
-        y8 = parseFloat(response[7]);
-        y9 = parseFloat(response[8]);
-        y10 = parseFloat(response[9]);
+                x = (new Date()).getTime()
+                y1 = parseFloat(response[0]);
+                y2 = parseFloat(response[1]);
+                y3 = parseFloat(response[2]);
+                y4 = parseFloat(response[3]);
+                y5 = parseFloat(response[4]);
+                y6 = parseFloat(response[5]);
+                y7 = parseFloat(response[6]);
+                y8 = parseFloat(response[7]);
+                y9 = parseFloat(response[8]);
+                y10 = parseFloat(response[9]);
 
-        chartT.series[0].addPoint([x, y1], true, false, true);
-        chartT.series[1].addPoint([x, y2], true, false, true);
-        chartT.series[2].addPoint([x, y3], true, false, true);
-        chartT.series[3].addPoint([x, y4], true, false, true);
-        chartT.series[4].addPoint([x, y5], true, false, true);
-        chartT.series[5].addPoint([x, y6], true, false, true);
-        chartT.series[6].addPoint([x, y7], true, false, true);
-        chartT.series[7].addPoint([x, y8], true, false, true);
-        chartT.series[8].addPoint([x, y9], true, false, true);
-        chartT.series[9].addPoint([x, y10], true, false, true);
+                chartT.series[0].addPoint([x, y1], true, false, true);
+                chartT.series[1].addPoint([x, y2], true, false, true);
+                chartT.series[2].addPoint([x, y3], true, false, true);
+                chartT.series[3].addPoint([x, y4], true, false, true);
+                chartT.series[4].addPoint([x, y5], true, false, true);
+                chartT.series[5].addPoint([x, y6], true, false, true);
+                chartT.series[6].addPoint([x, y7], true, false, true);
+                chartT.series[7].addPoint([x, y8], true, false, true);
+                chartT.series[8].addPoint([x, y9], true, false, true);
+                chartT.series[9].addPoint([x, y10], true, false, true);
 	
 
 		 },
 	 });
- }, 3000);
+ }, 10000);
 
 
