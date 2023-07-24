@@ -120,30 +120,17 @@ setInterval(function(){
 		 y9 = parseFloat(response[8]);
 		 y10 = parseFloat(response[9]);
 
-		 if(chartT.series[0].data.length > 100) {
-			chartT.series[0].addPoint([x, y1], true, true, true);
-			chartT.series[1].addPoint([x, y2], true, true, true);
-			chartT.series[2].addPoint([x, y3], true, true, true);
-			chartT.series[3].addPoint([x, y4], true, true, true);
-			chartT.series[4].addPoint([x, y5], true, true, true);
-			chartT.series[5].addPoint([x, y6], true, true, true);
-			chartT.series[6].addPoint([x, y7], true, true, true);
-			chartT.series[7].addPoint([x, y8], true, true, true);
-			chartT.series[8].addPoint([x, y9], true, true, true);
-			chartT.series[9].addPoint([x, y10], true, true, true);
-		 }
-		 else {
-			chartT.series[0].addPoint([x, y1], true, false, true);
-			chartT.series[1].addPoint([x, y2], true, false, true);
-			chartT.series[2].addPoint([x, y3], true, false, true);
-			chartT.series[3].addPoint([x, y4], true, false, true);
-			chartT.series[4].addPoint([x, y5], true, false, true);
-			chartT.series[5].addPoint([x, y6], true, false, true);
-			chartT.series[6].addPoint([x, y7], true, false, true);
-			chartT.series[7].addPoint([x, y8], true, false, true);
-			chartT.series[8].addPoint([x, y9], true, false, true);
-			chartT.series[9].addPoint([x, y10], true, false, true);
-		 }
+		chartT.series[0].addPoint([x, y1], true, false, true);
+		chartT.series[1].addPoint([x, y2], true, false, true);
+		chartT.series[2].addPoint([x, y3], true, false, true);
+		chartT.series[3].addPoint([x, y4], true, false, true);
+		chartT.series[4].addPoint([x, y5], true, false, true);
+		chartT.series[5].addPoint([x, y6], true, false, true);
+		chartT.series[6].addPoint([x, y7], true, false, true);
+		chartT.series[7].addPoint([x, y8], true, false, true);
+		chartT.series[8].addPoint([x, y9], true, false, true);
+		chartT.series[9].addPoint([x, y10], true, false, true);
+	
 
 		 },
 	 });
